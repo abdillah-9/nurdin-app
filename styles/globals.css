@@ -228,7 +228,7 @@
   height: fit-content;
 }
 .miniHeaderText{
-  font-weight: lighter;
+  /* font-weight: lighter; */
   font-size: 14px;
   color: rgb(3, 35, 53);
   letter-spacing: 1px;
