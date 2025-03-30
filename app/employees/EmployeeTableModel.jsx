@@ -78,7 +78,7 @@ const styleTH ={
     display:"flex",
     width:"16.667%",
     minWidth:"100px",
-    backgroundColor:"rgba(200,200,200,0.5)",
+    backgroundColor:"rgb(100, 184, 240)",
     //border:"1px solid rgba(200,200,200,0.8)",
 }
 
@@ -102,6 +102,7 @@ const styleIcon ={
     padding:"2px",
     border:"1px solid rgba(200,200,200,1)",
     backgroundColor:"rgba(200,200,200,0.5)",
+    cursor:"pointer",
 }
 const styleUserIcon ={
     display:"flex",

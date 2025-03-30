@@ -42,8 +42,8 @@ const Page = () => {
 
     <Container height={"78.5vh"} width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"}>
 
-      <Card padding={"5px 5px 20px 5px"} width={"100%"} justifyContent={"flex-end"}>
-        <Button boxShadow={"2px 3px 23px rgb(2, 37, 58)"} 
+      <Card padding={"15px"} width={"100%"} justifyContent={"flex-end"}>
+        <Button boxShadow={"2px 3px 3px rgb(2, 37, 58)"} 
         actionHandler={handleCreate} gap='8px'>
          <IoArrowRedoOutline/><div style={{fontSize:"13px"}}>Create employee</div>
         </Button>
