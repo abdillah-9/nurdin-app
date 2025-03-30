@@ -74,17 +74,18 @@ const styleTR ={
 }
 
 const styleTH ={
-    padding:"5px 15px",
+    padding:"10px",
+    fontSize:"15px",
     display:"flex",
     width:"16.667%",
     minWidth:"150px",
-    backgroundColor:"rgba(69, 161, 197, 0.77)",
+    backgroundColor:"rgba(14, 164, 233, 0.9)",
     //backgroundColor:"rgb(100, 184, 240)",
     //border:"1px solid rgba(200,200,200,0.8)",
 }
 
 const styleTD ={
-    padding:"5px 15px",
+    padding:"5px 10px",
     display:"flex",
     width:"16.667%",
     minWidth:"100px",
