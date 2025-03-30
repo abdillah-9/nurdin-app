@@ -223,14 +223,14 @@
   font-size: 18px;
   color: rgb(2, 59, 61);
   letter-spacing: 1px;
-  color: #b40303;
+  color: #880202;
   padding-right: 10px;
   height: fit-content;
 }
 .miniHeaderText{
   font-weight: lighter;
   font-size: 14px;
-  color: rgb(40, 97, 99);
+  color: rgb(3, 35, 53);
   letter-spacing: 1px;
   border-left: 2px solid rgb(40, 97, 99);
   padding: 5px 0px 5px 10px;

@@ -83,7 +83,7 @@ const FormModel = ()=>{
             <FormContainer.SubmitRow submitRow={submitRow}>
                 <FormContainer.Cancel cancelStyle={cancelStyle}>Cancel</FormContainer.Cancel>
                 <FormContainer.Submit submitButton={submitButton}>
-                    {fetchedFormData? "Update task" : "Create new task" }
+                    {fetchedFormData? "Update expenditure" : "Create new expenditure" }
                 </FormContainer.Submit>
             </FormContainer.SubmitRow>
 
@@ -105,23 +105,25 @@ const container = {
 }
 
 // ********************* COMPONENTS CSS STYLING ****************************//
-let padding = "5px 15px";
+let padding = "5px 10px";
 const formContainer ={
     backgroundColor: "white",
     fontSize: "14px",
     borderRadius: "5px",
-    width:"90%",
+    width:"50%",
     maxWidth:"1000px",
-    padding:" 0px 25px 25px 25px",
+    minWidth:"270px",
+    padding:" 0px 5px 5px 5px",
     boxShadow:" 5px 5px 30px rgba(2, 10, 56, 0.92)",
 }
 const formRow={
     display: "flex",
-    gap:"28%",
+    justifyContent:"flex-start",
+    gap:"10px",
     alignItems: "center",
     flexDirection: "row",
-    padding: "5px", 
-    borderBottom: "1px solid rgba(220,220,240,0.5)"
+    padding: "5px 7px", 
+    borderBottom: "1px solid rgba(220,220,240,0.5)",
   }
   const submitRow={
     display: "flex",
@@ -137,7 +139,11 @@ const formRow={
     width: "230px",
   }
   const labelStyle={
-    width: "100px",
+    display:"flex",
+    justifySelf:"center",
+    alignSelf:"center",
+    width:"30%",
+    minWidth: "70px",
     padding: "2px 0px",
     color: "rgb(10, 10, 24)",
   }

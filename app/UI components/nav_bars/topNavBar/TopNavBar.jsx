@@ -91,8 +91,9 @@ const divStyle={
 }
 
 const iconStyle={
-  fontSize:"30px",
-  color:"rgb(100, 86, 72)",
+  fontSize:"21px",
+  //color:"rgb(100, 86, 72)",
+  color:"black",
   cursor:"pointer",
 }
 export default TopNavBar;

@@ -5,6 +5,7 @@ import React from 'react'
 import Image from 'next/image';
 import { useLogin } from '../hooks/useLogin';
 import toast from '@node_modules/react-hot-toast/dist';
+import { PiWarningOctagonLight } from '@node_modules/react-icons/pi';
 
 export default function LoginModelForm() {
 
@@ -30,8 +31,17 @@ export default function LoginModelForm() {
     }
 
   return (
+
     <FormContainer formContainer={formContainer} formSubmit={formSubmit} onError={onError}>
 
+      <div style={warning}>
+        <div><PiWarningOctagonLight style={warningIcon}/></div>
+        <div>
+          This system is under development.<br/> 
+          Please use "demo@gmail.com" with password "1234567" to login...
+        </div>
+ 
+      </div>
       <Logo>
         <Image style={logoStyle} src="../assets/images/logo.svg" alt="logo" width={50} height={50}/>
       </Logo>
@@ -122,6 +132,20 @@ const submitButton={
     borderRadius: "5px",
     width: "230px",
     
+}
+const warning ={
+  boxShadow:"2px 3px 15px rgb(30,30,30)",
+  fontSize:"13px",
+  padding:"5px",
+  display:"flex",
+  flexDirection:"row",
+  gap:"10px",
+  maxWidth:"270px",
+}
+
+const warningIcon={
+  color:"rgb(247, 3, 3)",
+  fontSize:"18px",
 }
 
 const validateMail = (values)=>{

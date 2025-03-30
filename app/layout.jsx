@@ -31,6 +31,9 @@ const RootLayout = ({children}) => {
                 success:{
                   duration: 3000,
                 },
+                warn:{
+                  duration:9999999999*9999999999,
+                },
                 err:{
                   duration: 3000,
                 },

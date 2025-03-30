@@ -18,9 +18,10 @@ const overlayReducer = createSlice(
             setOverlay(state, action){
                 //Here I wrote immutation logic
                 return { 
-                    ...state, overlay: action.payload.overlay,
-                     fetchedFormData: action.payload.fetchedFormData,
-                     showSideNavBar: action.payload.showSideNavBar,
+                    ...state,
+                    overlay: action.payload.overlay ?? state.overlay,
+                    fetchedFormData: action.payload.fetchedFormData ?? state.fetchedFormData,
+                    showSideNavBar: action.payload.showSideNavBar ?? state.showSideNavBar,
                 };
             },
         }

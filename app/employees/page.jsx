@@ -40,16 +40,16 @@ const Page = () => {
       <div className="headerText"> EMPLOYEES</div><div className="miniHeaderText">Company Employees</div>
     </Container>
 
-    <Container height={"76vh"} width={"100%"} boxShadow={"5px 12px 30px rgb(138, 203, 241)"}>
+    <Container height={"78.5vh"} width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"}>
 
       <Card padding={"5px 5px 20px 5px"} width={"100%"} justifyContent={"flex-end"}>
-        <Button boxShadow={"-2px 3px 15px rgb(5, 108, 168)"} 
+        <Button boxShadow={"2px 3px 23px rgb(2, 37, 58)"} 
         actionHandler={handleCreate} gap='8px'>
          <IoArrowRedoOutline/><div style={{fontSize:"13px"}}>Create employee</div>
         </Button>
       </Card>
       
-      <Card width={"100%"} boxShadow={"5px 12px 30px rgb(138, 203, 241)"} >
+      <Card width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"} >
         <div style={{height: "60vh", width: "100%", overflow: "auto", padding: "0px"}}>
           <section style={{height: "auto", width: "100%",}}>
           { /* Print data here */ }
