@@ -45,7 +45,7 @@ const TopNavBar = () => {
   console.log("after click "+showSideNavBarValue)
   return (
     <nav className='flex justify-between items-center h-12vh bg-sky-500 shadow-2xl p-5 py-3'
-    style={{maxHeight:"fit-content",minHeight:"fit-content"}}>
+    style={{maxHeight:"fit-content",minHeight:"fit-content", backgroundColor:"rgb(14, 165, 233)"}}>
       <div style={divStyle}>
         <Link href="/dashboard">
         <Image
