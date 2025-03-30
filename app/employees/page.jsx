@@ -49,7 +49,7 @@ const Page = () => {
         </Button>
       </Card>
       
-      <Card width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"} >
+      <Card width={"100%"} boxShadow={"5px 3px 25px rgb(2, 97, 170)"} >
         <div style={{height: "60vh", width: "100%", overflow: "auto", padding: "0px"}}>
           <section style={{height: "auto", width: "100%",}}>
           { /* Print data here */ }

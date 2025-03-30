@@ -124,7 +124,7 @@ const formContainer ={
     borderRadius: "5px",
     width:"50%",
     maxWidth:"1000px",
-    minWidth:"290px",
+    minWidth:"300px",
     padding:" 0px 5px 5px 5px",
     boxShadow:" 5px 5px 30px rgba(2, 10, 56, 0.92)",
 }

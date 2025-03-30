@@ -79,7 +79,7 @@ const styleTH ={
     display:"flex",
     width:"16.667%",
     minWidth:"120px",
-    backgroundColor:"rgba(23, 47, 58, 0.45)",
+    backgroundColor:"rgba(87, 94, 97, 0.45)",
     //backgroundColor:"rgb(100, 184, 240)",
     border:"1px solid rgba(200,200,200,0.8)",
 }
