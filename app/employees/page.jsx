@@ -40,7 +40,8 @@ const Page = () => {
       <div className="headerText"> EMPLOYEES</div><div className="miniHeaderText">Company Employees</div>
     </Container>
 
-    <Container height={"78.5vh"} width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"}>
+    <Container height={"78.5vh"} width={"100%"} boxShadow={"5px 3px 45px rgb(2, 37, 58)"} 
+    style={{overflow:"auto"}} border='1px solid red'>
 
       <Card padding={"1px"} width={"100%"} justifyContent={"flex-end"}>
         <Button boxShadow={"2px 3px 3px rgb(2, 37, 58)"} 

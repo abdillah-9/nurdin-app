@@ -1,14 +1,17 @@
 "use client";
 import React from 'react';
 
-const Container = ({width, height="fit-content",boxShadow, justifyContent,alignItems="center" ,children}) => {
+const Container = ({width, height="fit-content",boxShadow, justifyContent,alignItems="center" ,children,
+  padding="15px 20px", border="",
+}) => {
 
 /* We define Css Here */
 const containerStyle = {
   width: width,
   height: height,
   borderRadius: "5px",
-  padding: "15px 20px",
+  padding: padding,
+  border:border,
   display:"flex",
   flexWrap: "wrap",
   boxShadow: boxShadow,
