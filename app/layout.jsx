@@ -10,7 +10,7 @@ const RootLayout = ({children}) => {
 
   return ( 
     <html lang='en'>
-        <body className='w-screen h-screen' style={{overflow:"auto"}}>
+        <body className='w-screen h-screen' style={{overflow:"hidden"}}>
           <ReactQueryProvider>
             <UserAuth/>
             <TopNavBar/>
