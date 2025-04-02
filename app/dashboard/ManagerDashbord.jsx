@@ -52,12 +52,15 @@ export default function ManagerDashbord() {
         const totalPendingTasks = tasksData?.reduce((total, item) =>
            item.status === "pending" ? total + 1 : total, 0);
 
-        //Calculate combineddata
-        const maxLength = Math.max(expenditureData.length, tasksData.length);
+        //Calculate combinedData
+        // Filter tasksData to include only completed tasks
+        const completedTasksData = tasksData.filter(task => task.status === "completed");
+
+        const maxLength = Math.max(expenditureData.length, completedTasksData.length);
 
         const combinedData = Array.from({ length: maxLength }, (_, index) => ({
           ...expenditureData[index],  // Handle missing values gracefully
-          ...tasksData[index]
+          ...completedTasksData[index]
         }));
         
         console.log(combinedData);
@@ -74,7 +77,7 @@ export default function ManagerDashbord() {
         });
       }
 
-      if (statsDuration === "Current month") {
+      if (statsDuration == "Current month") {
         //Get current date
         const currentDate = new Date();
         const currentMonthYearIso = currentDate.toISOString();
@@ -85,11 +88,16 @@ export default function ManagerDashbord() {
 
           const itemMonthYear = item.date.slice(0,7);
 
+          console.log("ItemMonthYear is"+itemMonthYear);
+          console.log("currentMonthYear is"+currentMonthYear);
+
           if (itemMonthYear == currentMonthYear) {
             return total + (item.cost || 0);  
           }
           return total; 
         }, 0); 
+
+        console.log("Total expenditure cost"+totalExpenditureCost);
         
         //Total Completed payments
         const totalCompletedPayment = tasksData?.reduce((total, item) => {
@@ -126,7 +134,22 @@ export default function ManagerDashbord() {
           return total;
         }, 0);
 
-        const combinedData=[{}];
+        //Calculate combineddata
+        // Filter tasksData and expendituredata to include only completed tasks and expenditures
+        const completedMonthlyTasksData = tasksData.filter(task => task.status === "completed"
+          && task.startDate.slice(0,7) === currentMonthYear
+        );
+
+        const completedMonthlyexpenditureData = expenditureData.filter(exp=>
+          exp.date.slice(0,7) === currentMonthYear
+        )
+        const maxLength = Math.max(completedMonthlyexpenditureData.length,
+           completedMonthlyTasksData.length);
+
+        const combinedData = Array.from({ length: maxLength }, (_, index) => ({
+          ...completedMonthlyexpenditureData[index],
+          ...completedMonthlyTasksData[index]
+        }));
 
         setStats({
           totalPendingTasks,
@@ -144,25 +167,6 @@ export default function ManagerDashbord() {
   console.log("combined  "+JSON.stringify(stats.combinedData))
   console.log("Tasks :"+JSON.stringify(tasksData));
   console.log("Expenditure :"+JSON.stringify(expenditureData));
-
-
-//   // Format the data to be used in the chart
-// const formattedData = expenditureData.map(item => ({
-//   date: item.date, // Use date as x-axis
-//   cost: item.cost  // Use cost as y-axis
-// }));
-
-// // Sort the data by date if needed
-// formattedData.sort((a, b) => new Date(a.date) - new Date(b.date));
-let rechartData = [
-  {"id":5,"created_at":"2025-02-27T21:25:06.624915+00:00","description":"sdfjvhcfgdfxcgvjhbkj","date":"2025-02-24","cost":234,"income": 4000},
-  {"id":6,"created_at":"2025-02-27T21:25:41.449589+00:00","description":"dfxgchvjbknl","date":"2025-01-27","cost":132,"income":7003},
-  {"id":7,"created_at":"2025-02-27T21:26:26.377955+00:00","description":"szdfghj fghbjkn hjbknlm","date":"2025-02-03","cost":6787,"income":567},
-  {"id":8,"created_at":"2025-03-23T11:43:28.223152+00:00","description":"i am testing mitamboz","date":"2025-03-25","cost":5700,"income":5678}
-];
-
-// COMBINE TASKS AND EXP DATA SO THAT TO BE USED IN THE SAME GRAPH
-
 
   return (
     <div>

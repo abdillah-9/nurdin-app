@@ -10,7 +10,7 @@ const RootLayout = ({children}) => {
 
   return ( 
     <html lang='en'>
-        <body className='w-screen h-screen' style={{overflow:"hidden"}}>
+        <body className='w-screen h-screen' style={{overflow:"auto"}}>
           <ReactQueryProvider>
             <UserAuth/>
             <TopNavBar/>
@@ -58,7 +58,6 @@ const main1={
    display:"flex",
    flexWrap:"wrap",
    flexDirection:"row",
-   overflow:"auto",
 }
 
 export default RootLayout
