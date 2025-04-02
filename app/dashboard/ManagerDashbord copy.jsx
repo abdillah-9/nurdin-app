@@ -25,7 +25,7 @@ export default function ManagerDashbord() {
     totalCompletedPayment: 0,
     tasksIsLoading: true,
     expenditureIsLoading: true,
-    combinedData:[{}],
+    combinedData:[{}]
   });
 
   // Fetch expenditures
@@ -52,17 +52,6 @@ export default function ManagerDashbord() {
         const totalPendingTasks = tasksData?.reduce((total, item) =>
            item.status === "pending" ? total + 1 : total, 0);
 
-        //Calculate combineddata
-        const maxLength = Math.max(expenditureData.length, tasksData.length);
-
-        const combinedData = Array.from({ length: maxLength }, (_, index) => ({
-          ...expenditureData[index],  // Handle missing values gracefully
-          ...tasksData[index]
-        }));
-        
-        console.log(combinedData);
-        
-
         setStats({
           totalPendingTasks,
           totalCompletedTasks,
@@ -70,7 +59,6 @@ export default function ManagerDashbord() {
           totalCompletedPayment,
           tasksIsLoading,
           expenditureIsLoading,
-          combinedData,
         });
       }
 
@@ -126,8 +114,6 @@ export default function ManagerDashbord() {
           return total;
         }, 0);
 
-        const combinedData=[{}];
-
         setStats({
           totalPendingTasks,
           totalCompletedTasks,
@@ -135,13 +121,11 @@ export default function ManagerDashbord() {
           totalCompletedPayment,
           tasksIsLoading,
           expenditureIsLoading,
-          combinedData,
         });
       }
     }
   }, [statsDuration, tasksData, expenditureData, tasksIsLoading, expenditureIsLoading]);
 
-  console.log("combined  "+JSON.stringify(stats.combinedData))
   console.log("Tasks :"+JSON.stringify(tasksData));
   console.log("Expenditure :"+JSON.stringify(expenditureData));
 
@@ -154,7 +138,8 @@ export default function ManagerDashbord() {
 
 // // Sort the data by date if needed
 // formattedData.sort((a, b) => new Date(a.date) - new Date(b.date));
-let rechartData = [
+
+const rechartData = [
   {"id":5,"created_at":"2025-02-27T21:25:06.624915+00:00","description":"sdfjvhcfgdfxcgvjhbkj","date":"2025-02-24","cost":234,"income": 4000},
   {"id":6,"created_at":"2025-02-27T21:25:41.449589+00:00","description":"dfxgchvjbknl","date":"2025-01-27","cost":132,"income":7003},
   {"id":7,"created_at":"2025-02-27T21:26:26.377955+00:00","description":"szdfghj fghbjkn hjbknlm","date":"2025-02-03","cost":6787,"income":567},
@@ -162,7 +147,32 @@ let rechartData = [
 ];
 
 // COMBINE TASKS AND EXP DATA SO THAT TO BE USED IN THE SAME GRAPH
+const joinedData = tasksData.map(task => {
+  const expenditure = expenditureData.find(exp => exp.id === task.id);
+  // Merge the task with the corresponding expenditure data
+  return {
+    ...task,
+    expenditure: expenditure || {}  // In case there's no matching expenditure
+  };
+});
 
+console.log("joined data is: "+JSON.stringify(joinedData));
+
+// const combinedData = tasksData.map(task => {
+//   // Find the corresponding expenditure entry based on id and created_at
+//   const expenditure = expenditureData.find(exp => exp.id === task.id && exp.created_at === task.created_at);
+  
+//   // Return the data structure you want to use in the chart
+//   return {
+//     created_at: task.created_at, // Include created_at from task
+//     startDate: task.startDate,
+//     date: expenditure ? expenditure.date : task.startDate,  // Safely include date
+//     cost: expenditure ? expenditure.cost : 0,  // Include cost from expenditureData
+//     payment: task.payment,       // Include payment from task
+//   };
+// });
+
+console.log("combined "+stats.combinedData)
 
   return (
     <div>
@@ -242,26 +252,26 @@ let rechartData = [
           (stats.tasksIsLoading || stats.expenditureIsLoading) ? <LoadingSpinner/> :
 
           <ResponsiveContainer height={350} width={"90%"}>  
-          <AreaChart data={stats.combinedData} style={styleAreaChart}>
+          <AreaChart data={expenditureData} style={styleAreaChart}>
             <XAxis dataKey="date" style={styleXaxis}/>
             <YAxis unit={"Tsh"} style={styleYaxis}/>
             <Tooltip/>
             <defs>
               <linearGradient id="expenditure" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="rgb(94, 248, 4)" stopOpacity={1}/>
-                <stop offset="95%" stopColor="rgb(94, 248, 4)" stopOpacity={0.5}/>
+                <stop offset="5%" stopColor="rgb(37, 99, 107)" stopOpacity={0.8}/>
+                <stop offset="95%" stopColor="rgb(37, 99, 107)" stopOpacity={0}/>
               </linearGradient>
               <linearGradient id="tasks" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="50%" stopColor="rgb(22, 131, 100)" stopOpacity={1}/>
                 <stop offset="95%" stopColor="rgb(22, 131, 100)" stopOpacity={0.5}/>
               </linearGradient>
             </defs>
-            <Area type="monotone" dataKey="cost" strokeWidth={1}
-            stroke="rgb(94, 248, 4)" fill="url(#expenditure)" unit={"Tsh"} name="expenditure"
+            <Area type="monotone" dataKey="cost" strokeWidth={3}
+            stroke="rgba(130, 187, 240,0.5)" fill="url(#expenditure)" unit={"Tsh"} name="expenditure"
             style={{color:"black"}}
             />
-            <Area type="monotone" dataKey="payment" strokeWidth={1}
-            stroke="rgba(6, 112, 212, 0.86)" fill="url(#tasks)" unit={"Tsh"} name="daily income"
+            <Area type="monotone" dataKey="payment" strokeWidth={3}
+            stroke="rgba(130, 187, 240,0.5)" fill="url(#tasks)" unit={"Tsh"} name="daily income"
             />
             <CartesianGrid strokeWidth={0.5} strokeDasharray={5}/>
           </AreaChart>
