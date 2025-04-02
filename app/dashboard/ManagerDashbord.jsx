@@ -248,20 +248,20 @@ let rechartData = [
             <Tooltip/>
             <defs>
               <linearGradient id="expenditure" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="rgb(94, 248, 4)" stopOpacity={1}/>
-                <stop offset="95%" stopColor="rgb(94, 248, 4)" stopOpacity={0.5}/>
+                <stop offset="5%" stopColor="rgb(54, 208, 4)" stopOpacity={1}/>
+                <stop offset="95%" stopColor="rgb(54, 208, 4)" stopOpacity={0.5}/>
               </linearGradient>
               <linearGradient id="tasks" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="50%" stopColor="rgb(22, 131, 100)" stopOpacity={1}/>
-                <stop offset="95%" stopColor="rgb(22, 131, 100)" stopOpacity={0.5}/>
+                <stop offset="50%" stopColor="rgba(6, 72, 152, 0.86)" stopOpacity={1}/>
+                <stop offset="95%" stopColor="rgba(6, 72, 152, 0.86)" stopOpacity={0.5}/>
               </linearGradient>
             </defs>
             <Area type="monotone" dataKey="cost" strokeWidth={1}
-            stroke="rgb(94, 248, 4)" fill="url(#expenditure)" unit={"Tsh"} name="expenditure"
+            stroke="rgb(54, 208, 4)" fill="url(#expenditure)" unit={"Tsh"} name="expenditure"
             style={{color:"black"}}
             />
             <Area type="monotone" dataKey="payment" strokeWidth={1}
-            stroke="rgba(6, 112, 212, 0.86)" fill="url(#tasks)" unit={"Tsh"} name="daily income"
+            stroke="rgba(6, 72, 152, 0.86)" fill="url(#tasks)" unit={"Tsh"} name="daily income"
             />
             <CartesianGrid strokeWidth={0.5} strokeDasharray={5}/>
           </AreaChart>
