@@ -44,7 +44,7 @@ const Page = () => {
     style={{overflow:"auto"}} >
 
       <Card padding={"5px"} width={"100%"} justifyContent={"flex-end"}>
-        <Button boxShadow={"4px 3px 25px rgb(2, 37, 58)"} 
+        <Button boxShadow={"-5px 3px 25px rgb(2, 37, 58)"} 
         actionHandler={handleCreate} gap='8px'>
          <IoArrowRedoOutline/><div style={{fontSize:"13px"}}>Create employee</div>
         </Button>
