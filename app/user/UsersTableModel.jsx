@@ -64,27 +64,31 @@ function UsersTableModel({data}){
 //Css f0r above comps
 const styleTable={
     width:"100%",
+    fontSize:"14px",
 }
 const styleTR ={
-    fontSize:"14px",
     textAlign: "left",
     display:"flex",
     width:"100%",
+    alignItems:"center",
+    backgroundColor:"rgba(200,200,200,0)",
 }
 
 const styleTH ={
-    padding:"5px",
+    padding:"10px",
+    fontSize:"15px",
     display:"flex",
     width:"20%",
-    minWidth:"100px",
-    backgroundColor:"rgba(200,200,200,0.5)",
-    //border:"1px solid rgba(200,200,200,0.8)",
+    minWidth:"120px",
+    backgroundColor:"rgba(87, 94, 97, 0.45)",
+    //backgroundColor:"rgb(100, 184, 240)",
+    border:"1px solid rgba(200,200,200,0.8)",
 }
 
 const styleTD ={
-    padding:"5px",
+    padding:"5px 10px",
     display:"flex",
-    gap:"3px",
+    gap:"7px",
     width:"20%",
     minWidth:"100px",
     //border:"1px solid rgba(200,200,200,0.8)",
@@ -93,7 +97,7 @@ const styleTD ={
 const styleImage ={
     width:"50px",
     height:"40px",
-    borderRadius:"5px",    
+    borderRadius:"0%",    
 }
 
 const styleIcon ={
@@ -101,8 +105,8 @@ const styleIcon ={
     padding:"2px",
     border:"1px solid rgba(200,200,200,1)",
     backgroundColor:"rgba(200,200,200,0.5)",
+    cursor:"pointer",
 }
-
 const styleUserIcon ={
     display:"flex",
     alignItems:"center",
@@ -113,5 +117,6 @@ const styleUserIcon ={
     fontSize:"25px",
     color:"rgb(49, 56, 56)",
 }
+
 
 export default UsersTableModel;

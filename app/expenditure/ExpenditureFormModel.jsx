@@ -44,7 +44,7 @@ const FormModel = ()=>{
         // End 
 
     return(
-        <div style={container} onClick={()=>dispatch(setOverlay(false))}>
+        <div style={container} onClick={()=>dispatch(setOverlay({overlay:false}))}>
         <FormContainer fetchedFormData={fetchedFormData? fetchedFormData:false} formContainer={formContainer}
           formSubmit={formSubmit} onError={onError}>
             
